@@ -28,6 +28,20 @@ To build an efficient pipeline, a typical Splunk SIEM deployment relies on a tie
 > 💡 **Why Splunk?** > In a modern security landscape, visibility is everything. Splunk bridges the gap between massive, fragmented log data and actionable threat intelligence, acting as the centralized "brain" of defensive cybersecurity operations.
 
 
-## installation GUIDE 
+# LAB SETUP GUIDE 
 
-Frist things Frist i am decide Splunk Enterprise 
+### 🏗️ Environment Setup & Prerequisites
+
+Before beginning the configuration, ensure your environment matches or meets the minimum requirements outlined below:
+
+#### 🖥️ Host Machine (Splunk Enterprise / Receiver)
+* **Operating System:** Xubuntu 24.04.4 LTS x86_64
+* **Role:** Splunk Enterprise Server Deployment
+
+#### 💻 Target Virtual Machine (Splunk Universal Forwarder)
+* **Operating System:** Windows 7 (x64) or higher
+* **Role:** Endpoint Log Collection
+
+> 💡 **Resource Optimization:** If you are running a low-spec lab environment, you can utilize lightweight Windows ISOs to minimize RAM and CPU overhead. Recommended lightweight versions include:
+> * [Windows X-Lite](https://windowsxlite.com/)
+> * [Windows 10 Lite Edition via Archive.org](https://archive.org/details/windows-10-lite-edition-19h2-x64)
