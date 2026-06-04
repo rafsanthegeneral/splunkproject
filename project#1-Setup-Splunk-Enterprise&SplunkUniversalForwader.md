@@ -45,3 +45,27 @@ Before beginning the configuration, ensure your environment matches or meets the
 > 💡 **Resource Optimization:** If you are running a low-spec lab environment, you can utilize lightweight Windows ISOs to minimize RAM and CPU overhead. Recommended lightweight versions include:
 > * [Windows X-Lite](https://windowsxlite.com/)
 > * [Windows 10 Lite Edition via Archive.org](https://archive.org/details/windows-10-lite-edition-19h2-x64)
+
+
+# 🖥️ Host Machine Setup: Splunk Enterprise (Receiver)
+
+To deploy Splunk Enterprise as your centralized log receiver, follow the registration and installation steps below.
+
+### 📋 Step 1: Create a Splunk Account
+1. Head over to the official [Splunk Registration Page](https://www.splunk.com/en_us/form/sign-up.html?module=nav&redirecturl=https://www.splunk.com/).
+2. Fill out the required details to create your free account.
+3. Verify your registration and log in to the portal.
+
+### 📥 Step 2: Download the Splunk Enterprise Installer
+Once logged in, navigate to the [Splunk Enterprise Download Center](https://www.splunk.com/en_us/download/splunk-enterprise.html) to choose the package optimized for your operating system.
+
+![Spunk Download Webpage](images/image.png)
+
+> 💡 **Xubuntu/Linux Users:** > Because i am using `Xubuntu 24.04` environment, select the **Linux** tab and download the `.tar` Pakage.
+
+
+
+
+
+
+
