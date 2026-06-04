@@ -4,6 +4,6 @@ A curated collection of hands-on Splunk SIEM projects designed for log analysis.
 
 ## Projects 
 
-1. [Splunk Installation And Forwader Setup](#) A comprehensive guide to setting up a distributed Splunk architecture. This project demonstrates how to deploy, configure, and connect Splunk Forwarders and Receivers in a mixed environment of Linux and Windows servers.
+1. [Splunk Installation And Forwader Setup](https://github.com/rafsanthegeneral/splunkproject/blob/master/project%231-Setup-Splunk-Enterprise%26SplunkUniversalForwader.md) A comprehensive guide to setting up a distributed Splunk architecture. This project demonstrates how to deploy, configure, and connect Splunk Forwarders and Receivers in a mixed environment of Linux and Windows servers.
 
 
