@@ -1,7 +1,23 @@
-# ART (ATOMIC RED TEAM)
+# 🏹 Adversary Emulation with Atomic Red Team (ART)
 
-## Introduction
-**Atomic Red Team** is an open-source framework developed by Red Canary that allows security teams to safely, quickly, and predictably test their defenses against real-world adversary behaviors. Mapped directly to the **MITRE ATT&CK®** matrix, it consists of small, highly targeted automation scripts ("atomics") designed to emulate specific cyber threat techniques—such as credential dumping, persistence, or malicious script execution—so defenders can verify if their SIEM (like Splunk) is successfully logging and alerting on malicious activity.
+## 📝 Introduction
+**Atomic Red Team** is an open-source framework developed by Red Canary that allows security teams to safely, quickly, and predictably test their defenses against real-world adversary behaviors. Mapped directly to the **MITRE ATT&CK®** matrix, it consists of small, highly targeted automation scripts ("atomics") designed to emulate specific cyber threat techniques—such as credential dumping, persistence, or malicious script execution. By deploying these controlled simulations, defenders can verify if their security infrastructure and SIEM platforms (like Splunk) are successfully capturing, indexing, and alerting on malicious activity.
 
-## Install Process 
+---
+
+## 🛑 Critical Security Disclaimer & Notice
+> ⚠️ **CRITICAL WARNING:** The Atomic Red Team framework contains real-world attack payloads and scriptable behaviors that simulate actual malware. **Execute these tests ONLY inside an isolated, non-production sandbox environment (such as a dedicated virtual machine).** 
+> 
+> * **Antivirus Intervention:** Real-time protection engines (like Windows Defender) will actively block or quarantine these files because they contain known signature behaviors. You must temporarily disable real-time protection on your target lab VM to ensure the simulations execute properly. **Run completely at your own risk.**
+
+---
+
+## ⚙️ Installation & Setup Process
+
+The core framework and test cases are openly maintained by the security community under the [Red Canary GitHub Organization](https://github.com/redcanaryco/). To set up the atomics library manually on your Windows target endpoint, follow the steps below:
+
+### 📥 Downloading the Atomics Library
+You can download the compiled master repository directly from the official source package to your isolated virtual machine.
+
+* **Direct Source Link:** [Download Atomic Red Team Master Archive (.zip)](https://codeload.github.com/redcanaryco/atomic-red-team/zip/refs/heads/master)
 
