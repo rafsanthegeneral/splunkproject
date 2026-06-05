@@ -233,3 +233,12 @@ To confirm that the data pipeline is fully operational and that the Windows Forw
 ```
 ![Accessing the Search & Reporting App](images/image12.png)
 
+---
+
+## 🤝 Contributing & Feedback
+
+Thank you for checking out this Splunk deployment guide! If you encountered any issues during your setup, found a typo, or have suggestions on how to improve this lab layout, feel free to open an **Issue** or submit a **Pull Request**. 
+
+If this guide helped you set up your first home lab environment, don't forget to give this repository a ⭐! 
+
+Happy Threat Hunting! 🎯
