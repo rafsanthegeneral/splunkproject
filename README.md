@@ -1,4 +1,7 @@
 # Splunk SIEM LOG ANALISYS PROJECT's
+![Splunk Lab Status](https://img.shields.io/badge/Lab__Status-Active-brightgreen?style=flat&logo=splunk&logoColor=white) 
+![Validated Tactics](https://img.shields.io/badge/MITRE__ATT%26CK-Validated-orange?style=flat&logo=mitre&logoColor=white) 
+![Maintained By](https://img.shields.io/badge/Maintained__By-rafsanthegeneral-blue?style=flat&logo=github)
 
 A curated collection of hands-on Splunk SIEM projects designed for log analysis. Each project includes sample datasets, step-by-step ingestion guides, and structured workflows to extract actionable security insights from diverse log sources.
 
