@@ -21,3 +21,20 @@ You can download the compiled master repository directly from the official sourc
 
 * **Direct Source Link:** [Download Atomic Red Team Master Archive (.zip)](https://codeload.github.com/redcanaryco/atomic-red-team/zip/refs/heads/master)
 
+After Download Extract this zip file and place on `c:` Drive with the Name `AtomicReadTeam` . It's Nessesary Name like this else code will not work in future.
+
+![alt text](../images/project-2/ART-setup/image1.png)
+
+Download the official [Invoke-AtomicRedTeam](https://github.com/redcanaryco/invoke-atomicredteam) PowerShell module from Red Canary.
+
+#### Instructions:
+
+1. **Open PowerShell as Administrator**
+
+```powershell
+cd C:\Users\$env:USERNAME\Desktop
+
+wget -O Invoke-AtomicRedTeam.psd1 "https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/Invoke-AtomicRedTeam.psd1"
+
+```
+
