@@ -6,7 +6,7 @@ A curated collection of hands-on Splunk SIEM projects designed for log analysis.
 
 1. [Splunk Installation And Forwader Setup](https://github.com/rafsanthegeneral/splunkproject/blob/master/project%231-Setup-Splunk-Enterprise%26SplunkUniversalForwader.md) A comprehensive guide to setting up a distributed Splunk architecture. This project demonstrates how to deploy, configure, and connect Splunk Forwarders and Receivers in a mixed environment of Linux and Windows servers.
 
-## 2. [🏹 MITRE ATT&CK Analysis with Atomic Red Team](https://github.com/rafsanthegeneral/splunkproject/blob/master/project%232-Atomic-Red-Team-Analysis.md)
+2. [🏹 MITRE ATT&CK Analysis with Atomic Red Team](https://github.com/rafsanthegeneral/splunkproject/blob/master/project%232-Atomic-Red-Team-Analysis.md)
 
 **An advanced adversary simulation and detection engineering project focused on validating SIEM defenses.**
 
