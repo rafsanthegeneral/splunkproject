@@ -129,6 +129,107 @@ Next, the installer will request network information to establish a connection w
 #### 3️⃣ Complete the Installation
 Review your settings, click **Install**, and wait for the wizard to successfully copy all files and initialize the background services on the Windows machine.
 
+# 📡 Configuring Log Communication Between Server and Forwarder
+
+To establish a communication pipeline between your Windows Forwarder and the Xubuntu Splunk Enterprise Server, you must first enable a receiving port on the server machine. By default, Splunk utilizes port `9997` for this traffic.
+
+---
+
+## ⚙️ Step 1: Enable the Receiving Port on Splunk Enterprise
+
+1. Open your web browser and log into your **Splunk Enterprise** instance (`http://localhost:8000`).
+2. Navigate to the top navigation bar and click on **Settings** ➔ **Forwarding and receiving**.
+3. Under the *Receive data* section, click on **Configure receiving**.
+4. Click the **New Receiving Port** button in the top right corner.
+5. Enter `9997` in the **Listen on this port** field and click **Save**.
+
+![Configuring Receiving Port on Splunk Enterprise](images/image8.png)
+
+---
+
+### Verification Note
+> 🔒 **Port Activation Complete:** Once saved, your Splunk Enterprise instance is officially configured to listen for incoming log streams on port `9997`.
+
+## ⚙️ Step 2: Configure the Splunk Universal Forwarder Active Connection
+
+To finalize the connection from the endpoint side, you must map the Universal Forwarder to your Splunk Enterprise instance using the Windows Command Prompt (CMD).
+
+#### 1️⃣ Open Command Prompt as Administrator
+Search for `cmd` in the Windows Start Menu, right-click, and select **Run as administrator**.
+
+#### 2️⃣ Navigate to the Binary Directory and Link the Server
+Change your directory to the Splunk installation path and execute the `add forward-server` command:
+
+```cmd
+cd "C:\Program Files\SplunkUniversalForwarder\bin"
+
+splunk add forward-server <YOUR_SPLUNK_ENTERPRISE_SERVER_IP>:9997
+```
+After that need to Configure `inputs.conf`. So open the `C:\Program Files\SplunkUniversalForwarder\etc\system\local\` Directory and Create a file name `inputs.conf`
+then pest the following configuration.
+```
+[WinEventLog://Application]
+disabled = false
+index= wineventlog
+
+[WinEventLog://System]
+disabled = false
+index= wineventlog
+
+[WinEventLog://Security]
+disabled = false
+index= wineventlog
+
+[WinEventLog://Microsoft-Windows-Sysmon/Operational]
+index = wineventlog
+disabled = false
+renderXml = true
+source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+
+```
+This configuration defines **stanzas** (the headers in brackets) that tell Splunk exactly which Windows Event logs to collect, how to format them, and where to store them.
+* **`[WinEventLog://...]`:** Specifies the path of the Windows Event Log channel to monitor (**Application**, **System**, and **Security** logs).
+* **`disabled = false`:** Explicitly activates collection for these log channels.
+* **`index = wineventlog`:** Routes all collected events into a dedicated storage bucket on your Splunk server named `wineventlog` (this makes searching faster and more organized).
+* **`renderXml = true`** *(Sysmon specific)*:** Forces Windows to output **Sysmon** logs in XML format. This preserves the structured layout of complex event fields (like Process IDs and parent command lines), making them much easier for Splunk to parse.
+* **`source = XmlWinEventLog:...`** *(Sysmon specific)*:** Modifies the source metadata tag so Splunk knows these specific logs are coming in as structured XML rather than standard plain text.
+------
+Then Save the Config file and you all set. Becare your Fowader System time and server system time must sync otherwise Logs perphaps now appare. 
 
 
+
+## ⚙️ Step 4: Provisioning the Index and Verifying Data Ingestion
+
+To properly store and query the incoming Windows events, you must create a dedicated index on the Splunk Enterprise server that matches the index destination specified in your forwarder's `inputs.conf` file.
+
+---
+
+#### 1️⃣ Create the Target Index (`wineventlog`)
+1. Log into your **Splunk Enterprise** dashboard (`http://localhost:8000`).
+2. Navigate to the top-right menu and select **Settings** ➔ **Indexes**.
+3. Click the **New Index** button in the top right corner.
+4. Configure the following parameter:
+   * **Index Name:** `wineventlog` *(Note: This must exactly match the index specified in your forwarder configuration)*.
+5. Leave all other retention and storage settings at their **Default** values and click **Save**.
+
+![Creating a New Index in Splunk Enterprise](images/image10.png)
+
+---
+
+#### 2️⃣ Navigate to the Search App
+1. Click the **Apps** dropdown menu in the top-left section of the sidebar.
+2. Select **Search & Reporting** to open the primary analytical interface.
+
+![Accessing the Search & Reporting App](images/image11.png)
+
+---
+
+#### 3️⃣ Execute Verification Query
+To confirm that the data pipeline is fully operational and that the Windows Forwarder is successfully shipping logs, execute an SPL search against your new index:
+
+1. In the search bar, type the following query:
+```spl
+   index="wineventlog"
+```
+![Accessing the Search & Reporting App](images/image12.png)
 
