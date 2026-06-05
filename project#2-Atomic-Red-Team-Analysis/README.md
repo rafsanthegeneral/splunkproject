@@ -1,0 +1,18 @@
+# 🏹 Adversary Emulation & Detection Engineering with Atomic Red Team
+
+## 📝 Introduction
+
+Defensive security is only as strong as the telemetries it can successfully validate. Rather than waiting for a real-world security breach to test infrastructure defenses, this project adopts a proactive **Purple Team** approach using Red Canary’s **Atomic Red Team** framework. 
+
+Atomic Red Team provides highly predictable, small, and automated test cases ("atomics") that map directly to the **MITRE ATT&CK®** framework. By safely simulating malicious tactics, techniques, and procedures (TTPs) on a controlled Windows endpoint, this project demonstrates how to generate rich security telemetry, validate log ingestion via a Splunk Universal Forwarder, and build precise **Splunk SPL detection queries** to spot active threat actors.
+
+---
+
+## 🚀 Key Highlights
+
+* **Framework Alignment:** All simulated attacks are mapped directly to specific **MITRE ATT&CK** matrices, tracking malicious activity from Initial Access to Impact.
+* **Controlled Adversary Emulation:** Executes discrete, scriptable test cases designed to safely mimic real-world threat actor behaviors without destabilizing the target OS.
+* **Telemetry Validation:** Verifies that critical event visibility vectors (such as Windows Security Event Logs and **Sysmon** process creation logs) are actively capturing critical forensic evidence.
+* **Detection Loop Closure:** Transitions raw, simulated attack telemetry into production-ready Splunk alerts, reducing the Mean Time to Detect (MTTD).
+
+---
