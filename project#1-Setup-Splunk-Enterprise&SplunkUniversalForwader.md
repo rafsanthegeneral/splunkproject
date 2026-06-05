@@ -98,6 +98,37 @@ Succesfully Installed !!! Splunk Enterprise .
 
 # 🖥️ Forwader Machine Setup: Splunk Forwader (Log Sender or Agent)
 
-I use Forwader Machine as a windows in vertual box. 
+For the forwarder node, a VirtualBox Windows VM will serve as the target endpoint. We will install the native Splunk Universal Forwarder Windows agent to collect and ship logs to our Xubuntu receiver.
+
+#### 📥 Step 1: Download the Windows Agent
+1. Navigate to the official [Splunk Universal Forwarder Download Page](https://www.splunk.com/en_us/download.html). *(Note: If your session has expired, you will be prompted to log back in).*
+2. Select the **Windows** tab.
+3. Choose the appropriate installer package based on your VM architecture:
+   * **Windows 64-bit (x64)** (Recommended)
+   * **Windows 32-bit (x86)**
+
+### ⚙️ Step 2: Running the Universal Forwarder Installer
+
+Locate your downloaded `.msi` file inside your Windows VM and execute it to begin the installation wizard.
+
+#### 1️⃣ Define Forwarder Credentials
+During the initial phase of the setup wizard, you will be prompted to create administrative credentials. 
+* **Username:** Create a local admin account for managing the forwarder agent.
+* **Password:** Enter and confirm a strong password.
+
+![Splunk Forwarder User Account Configuration](images/image6.png)
+
+#### 2️⃣ Configure the Deployment & Receiving Servers
+Next, the installer will request network information to establish a connection with your Splunk Enterprise host machine.
+
+* **Deployment Server:** You can leave this blank if you are managing the configuration locally.
+* **Receiving Indexer (Splunk Enterprise):** Input the static **IP Address** of your Xubuntu host machine along with the default Splunk indexing port (`9997`).
+
+![Splunk Enterprise Server IP Configuration](images/image7.png)
+
+#### 3️⃣ Complete the Installation
+Review your settings, click **Install**, and wait for the wizard to successfully copy all files and initialize the background services on the Windows machine.
+
+
 
 
