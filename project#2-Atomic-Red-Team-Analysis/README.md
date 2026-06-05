@@ -16,3 +16,6 @@ Atomic Red Team provides highly predictable, small, and automated test cases ("a
 * **Detection Loop Closure:** Transitions raw, simulated attack telemetry into production-ready Splunk alerts, reducing the Mean Time to Detect (MTTD).
 
 ---
+# Projects 
+
+1. [ATOMIC RED TEAM (ART) SETUP]() **Atomic Red Team** is an open-source framework developed by Red Canary that allows security teams to safely, quickly, and predictably test their defenses against real-world adversary behaviors.Here Showing how to install and run on windows using powershell.
