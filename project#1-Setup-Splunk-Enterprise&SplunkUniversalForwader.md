@@ -59,7 +59,7 @@ To deploy Splunk Enterprise as your centralized log receiver, follow the registr
 ### 📥 Step 2: Download the Splunk Enterprise Installer
 Once logged in, navigate to the [Splunk Enterprise Download Center](https://www.splunk.com/en_us/download/splunk-enterprise.html) to choose the package optimized for your operating system.
 
-![Spunk Download Webpage](images/project#1/image.png)
+![Spunk Download Webpage](images/project-1/image.png)
 
 > 💡 **Xubuntu/Linux Users:** > Because i am using `Xubuntu 24.04` environment, select the **Linux** tab and download the `.tar` Pakage.
 
@@ -84,15 +84,15 @@ Once the initialization process completes, your Splunk instance will be live and
 
 👉 **[http://localhost:8000](http://localhost:8000)**
 
-![alt text](images/project#1/image2.png)
+![alt text](images/project-1/image2.png)
 
 After All done you Get the Splunk Dashboard ready to go.
 
-![alt text](images/project#1/image3.png)
+![alt text](images/project-1/image3.png)
 
 Then Login with credentials you created during the initial setup phase. 
 
-![alt text](images/project#1/image4.png)
+![alt text](images/project-1/image4.png)
 
 Succesfully Installed !!! Splunk Enterprise .
 
@@ -116,7 +116,7 @@ During the initial phase of the setup wizard, you will be prompted to create adm
 * **Username:** Create a local admin account for managing the forwarder agent.
 * **Password:** Enter and confirm a strong password.
 
-![Splunk Forwarder User Account Configuration](images/project#1/image6.png)
+![Splunk Forwarder User Account Configuration](images/project-1/image6.png)
 
 #### 2️⃣ Configure the Deployment & Receiving Servers
 Next, the installer will request network information to establish a connection with your Splunk Enterprise host machine.
@@ -124,7 +124,7 @@ Next, the installer will request network information to establish a connection w
 * **Deployment Server:** You can leave this blank if you are managing the configuration locally.
 * **Receiving Indexer (Splunk Enterprise):** Input the static **IP Address** of your Xubuntu host machine along with the default Splunk indexing port (`9997`).
 
-![Splunk Enterprise Server IP Configuration](images/project#1/image7.png)
+![Splunk Enterprise Server IP Configuration](images/project-1/image7.png)
 
 #### 3️⃣ Complete the Installation
 Review your settings, click **Install**, and wait for the wizard to successfully copy all files and initialize the background services on the Windows machine.
@@ -143,7 +143,7 @@ To establish a communication pipeline between your Windows Forwarder and the Xub
 4. Click the **New Receiving Port** button in the top right corner.
 5. Enter `9997` in the **Listen on this port** field and click **Save**.
 
-![Configuring Receiving Port on Splunk Enterprise](images/project#1/image8.png)
+![Configuring Receiving Port on Splunk Enterprise](images/project-1/image8.png)
 
 ---
 
@@ -212,7 +212,7 @@ To properly store and query the incoming Windows events, you must create a dedic
    * **Index Name:** `wineventlog` *(Note: This must exactly match the index specified in your forwarder configuration)*.
 5. Leave all other retention and storage settings at their **Default** values and click **Save**.
 
-![Creating a New Index in Splunk Enterprise](images/project#1/image10.png)
+![Creating a New Index in Splunk Enterprise](images/project-1/image10.png)
 
 ---
 
@@ -220,7 +220,7 @@ To properly store and query the incoming Windows events, you must create a dedic
 1. Click the **Apps** dropdown menu in the top-left section of the sidebar.
 2. Select **Search & Reporting** to open the primary analytical interface.
 
-![Accessing the Search & Reporting App](images/project#1/image11.png)
+![Accessing the Search & Reporting App](images/project-1/image11.png)
 
 ---
 
@@ -231,7 +231,7 @@ To confirm that the data pipeline is fully operational and that the Windows Forw
 ```spl
    index="wineventlog"
 ```
-![Accessing the Search & Reporting App](images/project#1/image12.png)
+![Accessing the Search & Reporting App](images/project-1/image12.png)
 
 ---
 
