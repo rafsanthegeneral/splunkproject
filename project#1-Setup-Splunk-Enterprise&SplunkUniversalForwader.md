@@ -63,9 +63,41 @@ Once logged in, navigate to the [Splunk Enterprise Download Center](https://www.
 
 > 💡 **Xubuntu/Linux Users:** > Because i am using `Xubuntu 24.04` environment, select the **Linux** tab and download the `.tar` Pakage.
 
+```bash
+tar -xfv {filename}.tar
+```
+Once the download is complete, extract the contents of the archive and navigate to the Splunk binary directory to begin configuration:
 
+1. Extract the `.tgz` or `.tar` archive to your desired installation directory.
+2. Open your terminal and change your directory to `splunk/bin`:
 
+```bash
+cd /path/to/extracted/splunk/bin
+./splunk start --accept-license
+```
+Upon running the startup command, the installer will prompt you to configure your administrator credentials:
 
+1. **Create Administrator Username:** Enter a secure username (e.g., `admin`).
+2. **Create Administrator Password:** Enter and confirm a strong password.
 
+Once the initialization process completes, your Splunk instance will be live and accessible via your web browser at:
+
+👉 **[http://localhost:8000](http://localhost:8000)**
+
+![alt text](images/image2.png)
+
+After All done you Get the Splunk Dashboard ready to go.
+
+![alt text](images/image3.png)
+
+Then Login with credentials you created during the initial setup phase. 
+
+![alt text](images/image4.png)
+
+Succesfully Installed !!! Splunk Enterprise .
+
+# 🖥️ Forwader Machine Setup: Splunk Forwader (Log Sender or Agent)
+
+I use Forwader Machine as a windows in vertual box. 
 
 
