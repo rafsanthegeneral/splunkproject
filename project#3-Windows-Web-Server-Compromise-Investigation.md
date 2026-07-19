@@ -289,15 +289,21 @@ index.php?add=1&title=Atomic Habits&author=James Clear&category=Self Help
 ```
 ![alt text](/images/project-3/image4.png)
 
-After save this we need to configure the database as well . For doing this goto laragon control panel again and click the database option.
+After saving the `index.php` file, you also need to configure the database.
+Open the **Laragon Control Center** again and click the **Database** button.
 
-![alt text](/images/project-3/image5.png)
+![Open Database Manager](/images/project-3/image4.png)
 
-After open this, a database control panel will open. Then create a database named `library` and then press ok.
+A database management window will open. Create a new database named `library`, then click **OK**.
 
-![alt text](/images/project-3/image6.png)![alt text](/images/project-3/image7.png)
+![Create Database](/images/project-3/image5.png)
 
-After then select the newly created database called `library` and then select the `query` tab and pest the follwing database code.
+![Database Created](/images/project-3/image6.png)
+
+Once the database has been created, select the newly created `library` database from the left panel.
+Next, open the **Query** tab, paste the following SQL script into the query editor, and execute it.
+
+![Open Query Tab](/images/project-3/image7.png)
 
 ```sql
 CREATE TABLE books (
