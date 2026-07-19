@@ -319,3 +319,12 @@ VALUES
 ```
 ![alt text](/images/project-3/image8.png)
 
+Then browser your local ip on your browser. You will find your server ip top of the laragon control center window. 
+
+![alt text](/images/project-3/image9.png)
+
+After browser the server ip (in my case that is `192.168.110.91`) you will see the vulnarbale web application is running. 
+
+![alt text](/images/project-3/image10.png)
+
+
