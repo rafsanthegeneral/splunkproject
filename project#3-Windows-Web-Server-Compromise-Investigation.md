@@ -346,6 +346,7 @@ After identifying the SQL Injection vulnerability, the attacker uses **[sqlmap](
 
 > **Note**
 > File uploads or operating system command execution are **not** possible on every vulnerable application. These capabilities depend on database-specific features, user privileges, and server misconfigurations.
+> In this demonstration, **[Metasploit Framework](https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html)** is used to automate the post-exploitation process. Once the SQL Injection vulnerability has been successfully exploited, Metasploit is used to obtain a Meterpreter session and demonstrate a complete system compromise within the controlled lab environment. It's can intrigate with sqlmap. 
 
 To use `sqlmap`, the attacker must first install the latest version of **Python 3**, as `sqlmap` is written in Python.
 
@@ -353,6 +354,7 @@ The command used by the attaker :
 ```python
  python3 sqlmap.py -u 'http://192.168.110.91/index.php?search=asd' --technique=U --os-pwn
 ```
+
 ![alt text](/images/project-3/video1.gif)
 
 At this stage, the attacker has successfully gained full control of the target system. The Security Operations Center (SOC) analyst now begins the incident response process by investigating the attack, identifying indicators of compromise (IOCs), analyzing logs and alerts, determining the attacker's actions, and taking the necessary steps to contain, eradicate, and remediate the threat.
