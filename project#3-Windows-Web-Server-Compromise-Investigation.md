@@ -360,15 +360,15 @@ At this stage, the attacker has successfully gained full control of the target s
 ## 📊 Attack Detection and Cyber Kill Chain Analysis with Splunk Enterprise
 ### 🔗 Cyber Kill Chain Mapping
 
-| Kill Chain Phase | Activity | Expected Result |
-|------------------|----------|-----------------|
+| Kill Chain Phase | Activity | 
+|------------------|----------|
 | **1. Reconnaissance** 🔍 | Browse the target website and inspect available pages and parameters. |
 | **2. Weaponization** 🛠️ | Prepare the payloads |
 | **3. Delivery** 📤 | Submit the malicious payload|
 | **4. Exploitation** 💥 | Exploit The payload |
 | **5. Installation** 📦 | Install any backdoor target Server|
 | **6. Command & Control (C2)** 📡 | Backdoor Server|
-| **7. Actions on Objectives** 🎯 | Retrieve sensitive records, enumerate the database, or bypass authentication. | Sensitive data is displayed in the browser, and all malicious requests are logged in Splunk. |
+| **7. Actions on Objectives** 🎯 | Retrieve sensitive records, enumerate the database, or bypass authentication. |
 
 ---
 
