@@ -327,4 +327,68 @@ After browser the server ip (in my case that is `192.168.110.91`) you will see t
 
 ![alt text](/images/project-3/image10.png)
 
+## 🚀 Adversary Attack Simulation 
 
+After performing reconnaissance and multiple rounds of scanning, we assume that the attacker has successfully identified a **SQL Injection (SQLi)** vulnerability in the target web application in the `?search=` end point.
+
+During testing, the attacker discovers that the application's **search functionality** is vulnerable. Entering an additional single quotation mark (`'`) into the search field causes the application to return a SQL error with more sensative information such as webroot path(c:/laragon/www/), indicating that user input is not properly sanitized before being used in a database query.
+
+![alt text](/images/project-3/image11.png)
+
+After identifying the SQL Injection vulnerability, the attacker uses **[sqlmap](https://github.com/sqlmapproject/sqlmap)** to automate the exploitation process.
+
+`sqlmap` is an open-source penetration testing tool that detects and exploits SQL Injection vulnerabilities. Depending on the database type, the database user's privileges, and the server configuration, `sqlmap` may be able to perform advanced actions such as:
+
+- Enumerating databases, tables, and columns
+- Dumping sensitive data
+- Reading and writing files on the server (when permitted)
+- Executing operating system commands (only when supported by the target database and configuration)
+
+> **Note**
+> File uploads or operating system command execution are **not** possible on every vulnerable application. These capabilities depend on database-specific features, user privileges, and server misconfigurations.
+
+To use `sqlmap`, the attacker must first install the latest version of **Python 3**, as `sqlmap` is written in Python.
+
+The command used by the attaker :
+```python
+ python3 sqlmap.py -u 'http://192.168.110.91/index.php?search=asd' --technique=U --os-pwn
+```
+![alt text](/images/project-3/video1.gif)
+
+At this stage, the attacker has successfully gained full control of the target system. The Security Operations Center (SOC) analyst now begins the incident response process by investigating the attack, identifying indicators of compromise (IOCs), analyzing logs and alerts, determining the attacker's actions, and taking the necessary steps to contain, eradicate, and remediate the threat.
+
+## 📊 Attack Detection and Cyber Kill Chain Analysis with Splunk Enterprise
+### 🔗 Cyber Kill Chain Mapping
+
+| Kill Chain Phase | Activity | Expected Result |
+|------------------|----------|-----------------|
+| **1. Reconnaissance** 🔍 | Browse the target website and inspect available pages and parameters. |
+| **2. Weaponization** 🛠️ | Prepare the payloads |
+| **3. Delivery** 📤 | Submit the malicious payload|
+| **4. Exploitation** 💥 | Exploit The payload |
+| **5. Installation** 📦 | Install any backdoor target Server|
+| **6. Command & Control (C2)** 📡 | Backdoor Server|
+| **7. Actions on Objectives** 🎯 | Retrieve sensitive records, enumerate the database, or bypass authentication. | Sensitive data is displayed in the browser, and all malicious requests are logged in Splunk. |
+
+---
+
+### 🔍 Reconnaissance
+
+The **Reconnaissance** phase is the first stage of the Cyber Kill Chain. During this phase, the attacker gathers information about the target application to identify potential attack vectors and hidden resources.
+
+For web applications, attackers commonly perform **active reconnaissance** using directory and file enumeration tools, such as:
+
+- `dirsearch`
+- `feroxbuster`
+- `ffuf`
+
+These tools help discover:
+
+- Hidden directories and files
+- Administrative panels
+- Backup files
+- API endpoints
+- Login pages
+- Other exposed resources that may be vulnerable
+
+In this demonstration, we will use one of these tools to enumerate the target web application and generate Apache access logs, which will later be analyzed in **Splunk Enterprise**.
