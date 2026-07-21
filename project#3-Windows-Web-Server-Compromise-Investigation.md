@@ -40,6 +40,10 @@ source=apache:error
 
 ![Configure Splunk Forwarder](/images/project-3/image1.png)
 
+Then create `serveraccesslog` and `servererrorlog` into the splunk enterprize as shown below.
+
+![Configure Splunk Forwarder](/images/project-3/video2.gif)
+
 > **Note**
 >
 > - The default Laragon installation path is `C:\laragon`. If you installed Laragon on a different drive or directory, update the paths in the `inputs.conf` file accordingly.
@@ -393,4 +397,28 @@ These tools help discover:
 - Login pages
 - Other exposed resources that may be vulnerable
 
-In this demonstration, we will use one of these tools to enumerate the target web application and generate Apache access logs, which will later be analyzed in **Splunk Enterprise**.
+To detect this type of reconnaissance activity, we can analyze the **User-Agent**, requested URLs, and the **source IP address** in the Apache access logs.
+
+Directory enumeration tools such as **dirsearch**, **Feroxbuster**, and **ffuf** typically use predefined **wordlists**—many of which are publicly available on GitHub—to probe common files and directories. As a result, these tools often generate a large number of requests for sensitive or commonly used paths, including:
+
+- `login.php`
+- `admin.php`
+- `administrator.php`
+- `phpmyadmin/`
+- `backup/`
+- `.env`
+- `.git/`
+- And many other common endpoints
+
+These scanning patterns are usually visible in web server logs and can be identified by correlating:
+
+- The **User-Agent** header
+- The **source IP address**
+- The **requested URI**
+- The **request frequency**
+- The **HTTP response status codes** (such as `200`, `301`, `302`, `403`, and `404`)
+
+The following Splunk search query helps identify web requests that may indicate malicious reconnaissance or directory enumeration activity by highlighting requests for sensitive paths and suspicious scanning behavior.
+
+
+ 
