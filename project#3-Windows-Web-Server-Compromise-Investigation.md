@@ -420,5 +420,31 @@ These scanning patterns are usually visible in web server logs and can be identi
 
 The following Splunk search query helps identify web requests that may indicate malicious reconnaissance or directory enumeration activity by highlighting requests for sensitive paths and suspicious scanning behavior.
 
+```splunk
+
+index="serveraccesslog"
+| rex field=_raw "(?<src_ip>\d+\.\d+\.\d+\.\d+)"
+| rex field=_raw "\"(GET|POST|HEAD) (?<uri>\S+)"
+| search uri IN (
+"/admin*",
+"/administrator*",
+"/login*",
+"/wp-admin*",
+"/phpmyadmin*",
+"/.git*",
+"/.env*",
+"/backup*",
+"/config*",
+"/dashboard*",
+"/server-status*",
+"/robots.txt",
+"/webmail*",
+"/test*"
+)
+| stats count values(uri) as Targeted_Paths by src_ip
+| sort -count
+
+```
+
 
  
